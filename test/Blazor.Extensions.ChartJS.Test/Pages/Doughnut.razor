@@ -1,0 +1,44 @@
+@page "/Doughnut"
+
+<h1>Doughnut</h1>
+
+<Chart Configuration="@_config"></Chart>
+
+@code{
+    private ChartConfiguration _config;
+
+    protected override Task OnInitializedAsync()
+    {
+        this._config = new ChartConfiguration
+        {
+            Type = ChartType.Doughnut,
+            Data = new ChartData
+            {
+                Labels = new[] { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" },
+                Datasets = new []{
+                    new DoughnutDataset {
+                        Label = "# of Votes",
+                        Data= new double[]{12, 19, 3, 5, 2, 3},
+                        BackgroundColor= new []{
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)"
+                        },
+                        BorderColor= new[]{
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)"
+                        },
+                        BorderWidth= 1
+                    }}
+            }
+        };
+        return Task.CompletedTask;
+    }
+}

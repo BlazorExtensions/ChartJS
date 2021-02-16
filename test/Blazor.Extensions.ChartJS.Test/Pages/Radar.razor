@@ -1,0 +1,34 @@
+@page "/Radar"
+
+<h1>Radar</h1>
+
+<Chart Configuration="@_config"></Chart>
+
+@code{
+    private ChartConfiguration _config;
+
+    protected override Task OnInitializedAsync()
+    {
+        this._config = new ChartConfiguration
+        {
+            Type = ChartType.Radar,
+            Data = new ChartData
+            {
+                Labels = new[] { "Running", "Swimming", "Eating", "Cycling" },
+                Datasets = new []{
+                    new RadarDataset {
+                        Label = "Healthy",
+                        Data= new double[]{12, 19, 3, 5, 2, 3},
+                        BackgroundColor = "rgba(255, 99, 132, 0.2)"
+                    },
+                    new RadarDataset {
+                        Label = "Unhealthy",
+                        Data= new double[] { 20, 10, 4, 2 },
+                        BackgroundColor = "rgba(255, 206, 86, 1)"
+                    }
+                }
+            }
+        };
+        return Task.CompletedTask;
+    }
+}

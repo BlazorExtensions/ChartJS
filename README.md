@@ -7,7 +7,7 @@
 
 Blazor Extensions is a set of packages with the goal of adding useful features to [Blazor](https://blazor.net).
 
-# Blazor Extensions ChartJT
+# Blazor Extensions ChartJS
 
 This package is wrapper for the popular chart library [Chart.js](https://www.chartjs.org) that allow you to easily use its charts on a Blazor Application.
 

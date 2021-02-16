@@ -1,0 +1,52 @@
+@page "/Scatter"
+
+<h1>Scatter</h1>
+
+<Chart Configuration="@_config"></Chart>
+
+@code{
+    private ChartConfiguration _config;
+
+    protected override Task OnInitializedAsync()
+    {
+        this._config = new ChartConfiguration
+        {
+            Type = ChartType.Scatter,
+            Data = new ChartData
+            {
+                Datasets = new []{
+                    new ScatterDataset {
+                        Label = "Scatter dataset",
+                        Data= new []{
+                            new ScatterDataPoint {
+                                X =  -10,
+                                Y = 0
+                            },
+                            new ScatterDataPoint {
+                                X =  0,
+                                Y = 10
+                            },
+                            new ScatterDataPoint {
+                                X =  10,
+                                Y = 5
+                            },
+                            new ScatterDataPoint {
+                                X =  0.5,
+                                Y = 5.5
+                            }},
+                        BackgroundColor = "rgb(255, 99, 132)",
+                        PointBackgroundColor = "rgb(255, 99, 132)"
+                }}
+            },
+            Options = new {
+                scales = new {
+                    x = new {
+                        type = "linear",
+                        position = "bottom"
+                    }
+                }
+            }
+        };
+        return Task.CompletedTask;
+    }
+}

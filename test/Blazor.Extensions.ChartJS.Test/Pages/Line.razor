@@ -1,0 +1,28 @@
+@page "/Line"
+
+<h1>Line</h1>
+
+<Chart Configuration="@_config"></Chart>
+
+@code{
+    private ChartConfiguration _config;
+
+    protected override Task OnInitializedAsync()
+    {
+        this._config = new ChartConfiguration
+        {
+            Type = ChartType.Line,
+            Data = new ChartData
+            {
+                Labels = new[] { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" },
+                Datasets = new []{
+                    new LineDataset {
+                        Label = "# of Votes",
+                        Data= new double[]{12, 19, 3, 5, 2, 3},
+                        BorderWidth= 1
+                }}
+            }
+        };
+        return Task.CompletedTask;
+    }
+}
